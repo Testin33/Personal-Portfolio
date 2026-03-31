@@ -2,6 +2,10 @@ import Navbar from '../components/Navbar'
 import Hero from '../sections/Hero'
 import About from '../sections/About'
 import Experience from '../sections/Experience'
+import HonorsAwards from '../sections/HonorsAwards'
+import WhoIAm from '../sections/WhoIAm'
+import FeaturedProjects from '../sections/FeaturedProjects'
+import Contact from '../sections/Contact'
 import Footer from '../components/Footer'
 
 export default function Home() {
@@ -12,6 +16,10 @@ export default function Home() {
         <Hero />
         <About />
         <Experience />
+        <HonorsAwards />
+        <WhoIAm />
+        <FeaturedProjects />
+        <Contact />
       </main>
       <Footer />
     </div>

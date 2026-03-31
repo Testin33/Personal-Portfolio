@@ -2,11 +2,11 @@ export default function Hero() {
   return (
     <section className="pt-[72px] bg-bg-main">
       {/* Profile photo */}
-      <div className="mx-5 mt-4 rounded-2xl overflow-hidden bg-bg-card border border-border-dark">
+      <div className="flex justify-center items-end mt-4 px-5">
         <img
           src="/images/profile.png"
           alt="Juan Azcona"
-          className="w-full object-cover object-top max-h-72"
+          className="w-4/5 max-h-80 object-contain object-bottom"
         />
       </div>
 

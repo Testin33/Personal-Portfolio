@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import { projects } from '../data/projects'
+import { highlights } from '../data/projects'
 
 export default function Experience() {
   return (
-    <section id="projects" className="px-5 py-10 bg-bg-main border-t border-border-dark">
+    <section id="experience" className="px-5 py-10 bg-bg-main border-t border-border-dark">
       {/* Section label */}
       <p className="text-xs font-semibold text-coral tracking-widest uppercase mb-3">
         Experience
@@ -18,39 +18,53 @@ export default function Experience() {
 
       {/* Cards */}
       <div className="flex flex-col gap-4">
-        {projects.map((project) => (
-          <ExperienceCard key={project.slug} project={project} />
+        {highlights.map((item) => (
+          <HighlightCard key={item.slug} item={item} />
         ))}
       </div>
     </section>
   )
 }
 
-function ExperienceCard({ project }) {
-  return (
-    <Link
-      to={`/project/${project.slug}`}
-      className="block bg-bg-card border border-border-dark rounded-2xl p-5 hover:border-coral/40 transition-colors duration-200"
-    >
-      {/* Icon placeholder */}
-      <div className="w-9 h-9 rounded-lg bg-bg-alt border border-border-dark flex items-center justify-center mb-4">
-        <span className="text-coral text-base">🏆</span>
+function HighlightCard({ item }) {
+  const inner = (
+    <>
+      {/* Icon */}
+      <div className="w-9 h-9 rounded-lg bg-bg-alt border border-border-dark flex items-center justify-center mb-4 text-base">
+        {item.icon}
       </div>
 
-      {/* Tag + year */}
+      {/* Tag */}
       <p className="text-xs font-semibold text-coral tracking-widest uppercase mb-2">
-        {project.tag} · {project.year}
+        {item.tag} · {item.subtag}
       </p>
 
       {/* Title */}
       <h3 className="text-white font-semibold text-base mb-2 leading-snug">
-        {project.title}
+        {item.title}
       </h3>
 
-      {/* Short description */}
+      {/* Description */}
       <p className="text-[#e0e0e0] text-sm leading-relaxed">
-        {project.shortDesc}
+        {item.shortDesc}
       </p>
-    </Link>
+    </>
+  )
+
+  if (item.hasDetail) {
+    return (
+      <Link
+        to={`/project/${item.slug}`}
+        className="block bg-bg-card border border-border-dark rounded-2xl p-5 hover:border-coral/40 transition-colors duration-200"
+      >
+        {inner}
+      </Link>
+    )
+  }
+
+  return (
+    <div className="bg-bg-card border border-border-dark rounded-2xl p-5">
+      {inner}
+    </div>
   )
 }
