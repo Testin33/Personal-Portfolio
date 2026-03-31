@@ -1,0 +1,19 @@
+import Navbar from '../components/Navbar'
+import Hero from '../sections/Hero'
+import About from '../sections/About'
+import Experience from '../sections/Experience'
+import Footer from '../components/Footer'
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-bg-main">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+      </main>
+      <Footer />
+    </div>
+  )
+}
