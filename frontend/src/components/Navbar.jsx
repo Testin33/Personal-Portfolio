@@ -6,10 +6,23 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-4 bg-bg-alt/90 backdrop-blur-md border-b border-border-dark">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-4 md:px-16 bg-bg-alt/90 backdrop-blur-md border-b border-border-dark">
         <Link to="/" className="font-serif text-xl text-coral tracking-tight">
           Juan
         </Link>
+
+        {/* Desktop nav links */}
+        <div className="hidden md:flex items-center gap-8 text-sm text-[#e0e0e0]">
+          {['About', 'Projects', 'Contact'].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="hover:text-coral transition-colors duration-200"
+            >
+              {item}
+            </a>
+          ))}
+        </div>
 
         <a
           href="mailto:azconajuan30@gmail.com"
@@ -21,7 +34,7 @@ export default function Navbar() {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
-          className="flex flex-col gap-1.5 p-1"
+          className="flex flex-col gap-1.5 p-1 md:hidden"
         >
           <span className="block w-6 h-0.5 bg-white" />
           <span className="block w-6 h-0.5 bg-white" />

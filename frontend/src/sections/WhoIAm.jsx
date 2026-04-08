@@ -2,61 +2,72 @@ import { skills } from '../data/honors'
 
 export default function WhoIAm() {
   return (
-    <section id="about" className="px-5 py-10 bg-bg-main border-t border-border-dark">
-      <p className="text-xs font-semibold text-coral tracking-widest uppercase mb-3">
-        About Me
-      </p>
-      <h2 className="text-3xl font-semibold text-white mb-4">
-        Who I Am
-      </h2>
+    <section id="about" className="bg-bg-main w-full px-4 py-[60px] md:px-16 md:py-24">
+      <div className="max-w-[1440px] mx-auto">
 
-      <p className="text-[#e0e0e0] text-sm leading-relaxed mb-4">
-        I'm an IE student and researcher based in Paraguay, with experience spanning
-        Machine Learning, Full Stack Development, and Robotics. I've had the privilege
-        of presenting research at{' '}
-        <span className="text-coral font-semibold">ICEAI 2025</span> in Nagoya, Japan,
-        competing internationally, and studying abroad in Taiwan.
-      </p>
-      <p className="text-[#e0e0e0] text-sm leading-relaxed mb-4">
-        My academic journey has been marked by top rankings and merit scholarships,
-        but what drives me most is building things that solve real problems — from
-        automated harvesting systems to AI-powered agricultural tools.
-      </p>
-      <p className="text-[#e0e0e0] text-sm leading-relaxed mb-5">
-        I'm actively looking for internships and junior roles in{' '}
-        <span className="text-white font-medium">ML Engineering</span>,{' '}
-        <span className="text-white font-medium">Full Stack Development</span>, or{' '}
-        <span className="text-white font-medium">Requirements Engineering</span>. My
-        portfolio is available in English, Spanish, Portuguese, and Chinese.
-      </p>
+        {/* Header */}
+        <div className="flex flex-col items-center gap-[29px] mb-[29px]">
+          <p className="font-semibold text-[12px] text-coral tracking-[2px] uppercase text-center">
+            About Me
+          </p>
+          <p className="font-serif text-[36px] text-white tracking-[-1px] text-center md:text-5xl">
+            Who I Am
+          </p>
+          <hr className="border-t border-border-dark w-full" />
+        </div>
 
-      <a
-        href="/cv.pdf"
-        download
-        className="inline-flex items-center gap-1.5 text-sm text-coral hover:text-coral-hover transition-colors duration-200 mb-8"
-      >
-        ↓ Download CV
-      </a>
+        <div className="flex flex-col gap-[27px] md:grid md:grid-cols-2 md:gap-16">
 
-      {/* Skills */}
-      <div className="flex flex-col gap-5 mt-2">
-        {skills.map((group) => (
-          <div key={group.category}>
-            <p className="text-xs font-semibold text-[#999] tracking-widest uppercase mb-2">
-              {group.category}
+          {/* Bio + CV */}
+          <div className="flex flex-col gap-5">
+            <p className="text-[#e0e0e0] text-[15px] leading-[27px]">
+              I&apos;m an IT student and researcher based in Paraguay, with experience spanning
+              Machine Learning and Robotics. I&apos;ve had the privilege of presenting research at{' '}
+              <strong className="text-white font-bold">ICEAI 2025</strong> in Nagoya, Japan,
+              competing internationally in robotics, and studying abroad in Taiwan.
             </p>
-            <div className="flex flex-wrap gap-2">
-              {group.items.map((skill) => (
-                <span
-                  key={skill}
-                  className="text-xs text-[#e0e0e0] bg-bg-card border border-border-dark px-3 py-1.5 rounded-full"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
+            <p className="text-[#e0e0e0] text-[15px] leading-[27px]">
+              My academic journey has been marked by top rankings and merit scholarships, but
+              what drives me most is building things that solve real problems — from automated
+              handwashing stations to AI-powered agricultural tools.
+            </p>
+            <p className="text-[#e0e0e0] text-[15px] leading-[27px]">
+              I&apos;m actively looking for internships and junior roles in{' '}
+              <strong className="text-white font-bold">ML Engineering</strong>,{' '}
+              <strong className="text-white font-bold">Full Stack Development</strong>, or{' '}
+              <strong className="text-white font-bold">Requirements Engineering</strong>.
+              My portfolio is available in English, Spanish, Portuguese, and Chinese.
+            </p>
+            <a
+              href="#"
+              className="font-bold text-[14px] text-coral-hover underline underline-offset-4 hover:text-coral transition-colors w-fit"
+            >
+              ↓ Download CV
+            </a>
           </div>
-        ))}
+
+          {/* Skills */}
+          <div className="flex flex-col gap-5">
+            {skills.map((group) => (
+              <div key={group.category} className="flex flex-col gap-[14px]">
+                <p className="font-semibold text-[12px] text-coral tracking-[1.5px] uppercase">
+                  {group.category}
+                </p>
+                <div className="flex flex-wrap gap-[10px]">
+                  {group.items.map((skill) => (
+                    <span
+                      key={skill}
+                      className="bg-bg-card border border-border-dark text-[#e0e0e0] text-[13px] px-[15px] py-[6px] rounded-[20px]"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
       </div>
     </section>
   )

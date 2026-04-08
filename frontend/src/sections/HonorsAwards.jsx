@@ -2,36 +2,50 @@ import { honors } from '../data/honors'
 
 export default function HonorsAwards() {
   return (
-    <section id="honors" className="px-5 py-10 bg-bg-main border-t border-border-dark">
-      <p className="text-xs font-semibold text-coral tracking-widest uppercase mb-3">
-        Recognition
-      </p>
-      <h2 className="text-3xl font-semibold text-white mb-2">
-        Honors &amp; Awards
-      </h2>
-      <p className="text-[#e0e0e0] text-sm mb-6">
-        Academic and competitive recognition from local to international stages.
-      </p>
+    <section id="honors" className="bg-bg-alt w-full px-4 py-[22px] md:px-16 md:py-24">
+      <div className="max-w-[1440px] mx-auto">
 
-      <div className="flex flex-col gap-4">
-        {honors.map((item, i) => (
-          <div
-            key={i}
-            className="bg-bg-card border border-border-dark rounded-2xl p-5 flex gap-4 items-start"
-          >
-            <div className="w-9 h-9 shrink-0 rounded-lg bg-bg-alt border border-border-dark flex items-center justify-center text-base">
-              {item.icon}
+        {/* Header */}
+        <div className="flex flex-col gap-[22px] mb-[22px]">
+          <p className="font-semibold text-[12px] text-coral tracking-[2px] uppercase">
+            Recognition
+          </p>
+          <p className="font-serif text-[36px] text-white tracking-[-1px] md:text-5xl">
+            Honors &amp; Awards
+          </p>
+          <p className="text-[#e0e0e0] text-[16px] leading-relaxed">
+            Academic and competitive recognition from local to international stages.
+          </p>
+          <hr className="border-t border-border-dark" />
+        </div>
+
+        {/* Cards */}
+        <div className="flex flex-col gap-[22px] md:grid md:grid-cols-2 md:gap-6">
+          {honors.map((item, i) => (
+            <div
+              key={i}
+              className="bg-bg-card border border-border-dark rounded-[12px] flex gap-4 p-[17px] items-center min-h-[165px]"
+            >
+              {/* Emoji badge */}
+              <div className="shrink-0">
+                <div className="w-12 h-12 rounded-[24px] bg-[rgba(255,107,91,0.12)] border border-[rgba(255,107,91,0.3)] flex items-center justify-center text-[22px]">
+                  {item.icon}
+                </div>
+              </div>
+
+              {/* Text */}
+              <div className="flex flex-col gap-[6px] flex-1">
+                <p className="font-serif font-bold text-[18px] text-white leading-[23.4px]">
+                  {item.title}
+                </p>
+                <p className="text-[#e0e0e0] text-[13px] leading-[19.5px]">
+                  {item.desc}
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-white font-semibold text-sm leading-snug mb-1">
-                {item.title}
-              </h3>
-              <p className="text-[#e0e0e0] text-sm leading-relaxed">
-                {item.desc}
-              </p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
       </div>
     </section>
   )

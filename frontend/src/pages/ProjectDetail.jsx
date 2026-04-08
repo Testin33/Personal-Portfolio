@@ -17,7 +17,7 @@ export default function ProjectDetail() {
   return (
     <div className="min-h-screen bg-bg-main">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-4 bg-bg-alt/90 backdrop-blur-md border-b border-border-dark">
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-4 md:px-16 bg-bg-alt/90 backdrop-blur-md border-b border-border-dark">
         <Link to="/" className="text-[#e0e0e0] hover:text-white transition-colors">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M19 12H5M12 5l-7 7 7 7"/>
@@ -31,14 +31,15 @@ export default function ProjectDetail() {
       </header>
 
       <main className="pt-[72px]">
+        <div className="md:max-w-3xl md:mx-auto">
         {/* Section label + title */}
-        <div className="px-5 pt-6 pb-4">
+        <div className="px-5 pt-6 pb-4 md:px-0">
           <h1 className="text-2xl font-semibold text-white">Key Highlights</h1>
         </div>
 
         {/* Banner image */}
         {project.banner && (
-          <div className="mx-5 rounded-xl overflow-hidden mb-6">
+          <div className="mx-5 md:mx-0 rounded-xl overflow-hidden mb-6">
             <img
               src={project.banner}
               alt={project.title}
@@ -47,7 +48,7 @@ export default function ProjectDetail() {
           </div>
         )}
 
-        <div className="px-5">
+        <div className="px-5 md:px-0">
           {/* Tag + year */}
           <p className="text-xs font-semibold text-coral tracking-widest uppercase mb-2">
             {project.tag} · {project.year}
@@ -58,11 +59,27 @@ export default function ProjectDetail() {
             {project.title}
           </h2>
 
-          {/* Body */}
-          <div className="text-[#e0e0e0] text-sm leading-relaxed space-y-4">
-            {project.body.split('\n\n').map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
+          {/* Body — structured sections or plain text */}
+          <div className="text-[#e0e0e0] text-sm leading-relaxed space-y-6">
+            {project.sections
+              ? project.sections.map((section, i) => (
+                  <div key={i}>
+                    <h3 className="text-white text-base font-semibold mb-2">{section.heading}</h3>
+                    {section.paragraphs?.map((p, j) => (
+                      <p key={j} className="mb-2">{p}</p>
+                    ))}
+                    {section.items && (
+                      <ul className="list-disc list-inside space-y-1">
+                        {section.items.map((item, j) => (
+                          <li key={j}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))
+              : project.body.split('\n\n').map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
           </div>
 
           {/* Proof of work */}
@@ -87,6 +104,7 @@ export default function ProjectDetail() {
         </div>
 
         <div className="pb-10" />
+        </div>
       </main>
 
       <Footer />
