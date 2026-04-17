@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="bg-bg-alt border-t border-border-dark px-4 py-[30px] md:px-16 md:py-10">
-      <div className="max-w-[1440px] mx-auto flex flex-col items-center gap-4 md:flex-row md:justify-between">
+    <footer className="bg-bg-alt border-t border-border-dark px-16 py-10">
+      <div className="max-w-[1440px] mx-auto flex flex-row items-center justify-between">
 
         <p className="font-serif text-[18px] text-coral text-center">
           Juan Azcona

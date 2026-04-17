@@ -29,7 +29,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-bg-alt w-full px-4 py-[60px] md:px-16 md:py-24">
+    <section id="contact" className="bg-bg-alt w-full px-16 py-24">
       <div className="max-w-[1440px] mx-auto">
 
         {/* Header */}
@@ -37,7 +37,7 @@ export default function Contact() {
           <p className="font-semibold text-[12px] text-coral tracking-[2px] uppercase">
             Get In Touch
           </p>
-          <p className="font-serif text-[36px] text-white tracking-[-1px] md:text-5xl">
+          <p className="font-serif text-5xl text-white tracking-[-1px]">
             Let&apos;s Work Together
           </p>
           <p className="text-[#e0e0e0] text-[16px] leading-relaxed">
@@ -46,7 +46,7 @@ export default function Contact() {
           <hr className="border-t border-border-dark" />
         </div>
 
-        <div className="flex flex-col gap-5 md:grid md:grid-cols-2 md:gap-16">
+        <div className="grid grid-cols-2 gap-16">
 
           {/* Left — message + socials */}
           <div className="flex flex-col gap-5">

@@ -3,7 +3,7 @@ import { projects } from '../data/projects'
 
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="bg-bg-main w-full px-4 py-[20px] md:px-16 md:py-24">
+    <section id="projects" className="bg-bg-main w-full px-16 py-24">
       <div className="max-w-[1440px] mx-auto">
 
         {/* Header */}
@@ -11,7 +11,7 @@ export default function FeaturedProjects() {
           <p className="font-semibold text-[12px] text-coral tracking-[2px] uppercase text-center">
             Work
           </p>
-          <p className="font-serif text-[36px] text-white tracking-[-1px] text-center md:text-5xl">
+          <p className="font-serif text-5xl text-white tracking-[-1px] text-center">
             Featured Projects
           </p>
           <a
@@ -23,7 +23,7 @@ export default function FeaturedProjects() {
         </div>
 
         {/* Cards */}
-        <div className="flex flex-col gap-5 md:grid md:grid-cols-3 md:gap-8">
+        <div className="grid grid-cols-3 gap-8">
           {projects.map((project) => (
             <Link
               key={project.slug}

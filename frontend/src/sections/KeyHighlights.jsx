@@ -3,7 +3,7 @@ import { highlights } from '../data/projects'
 
 export default function KeyHighlights() {
   return (
-    <section id="highlights" className="bg-bg-alt w-full px-4 py-5 md:px-16 md:py-24">
+    <section id="highlights" className="bg-bg-alt w-full px-16 py-24">
       <div className="max-w-[1440px] mx-auto">
 
         {/* Header */}
@@ -11,7 +11,7 @@ export default function KeyHighlights() {
           <p className="font-semibold text-[12px] text-coral tracking-[2px] uppercase">
             Experience
           </p>
-          <p className="font-serif text-[36px] text-white tracking-[-1px] md:text-5xl">
+          <p className="font-serif text-5xl text-white tracking-[-1px]">
             Key Highlights
           </p>
           <p className="text-[#e0e0e0] text-[16px] leading-relaxed">
@@ -21,7 +21,7 @@ export default function KeyHighlights() {
         </div>
 
         {/* Cards */}
-        <div className="flex flex-col gap-5 md:grid md:grid-cols-3 md:gap-8">
+        <div className="grid grid-cols-3 gap-8">
           {highlights.map((item) => {
             const card = (
               <div className="bg-bg-card border border-border-dark rounded-[12px] flex flex-col gap-5 p-4 hover:border-coral/40 transition-colors duration-200">
