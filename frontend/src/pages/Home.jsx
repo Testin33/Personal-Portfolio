@@ -1,8 +1,6 @@
 import Navbar from '../components/Navbar'
 import Hero from '../sections/Hero'
-import About from '../sections/About'
-import Experience from '../sections/Experience'
-import HonorsAwards from '../sections/HonorsAwards'
+import KeyHighlights from '../sections/KeyHighlights'
 import WhoIAm from '../sections/WhoIAm'
 import FeaturedProjects from '../sections/FeaturedProjects'
 import Contact from '../sections/Contact'
@@ -14,9 +12,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Experience />
-        <HonorsAwards />
+        <KeyHighlights />
         <WhoIAm />
         <FeaturedProjects />
         <Contact />

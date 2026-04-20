@@ -2,12 +2,13 @@
 *.txt
 .claude
 CLAUDE.md
-
+*.jpg
 # Dependencies
 node_modules/
 
 # Build output
 dist/
+cv/
 
 # Environment
 .env
