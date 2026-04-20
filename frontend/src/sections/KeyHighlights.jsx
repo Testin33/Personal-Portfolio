@@ -24,14 +24,14 @@ export default function KeyHighlights() {
         <div className="grid grid-cols-3 gap-8">
           {highlights.map((item) => {
             const card = (
-              <div className="bg-bg-card border border-border-dark rounded-[12px] flex flex-col gap-5 p-4 hover:border-coral/40 transition-colors duration-200">
+              <div className="bg-bg-card border border-border-dark rounded-[12px] flex flex-col gap-5 p-4 hover:border-coral/40 transition-colors duration-200 h-full">
                 {/* Banner */}
-                <div className="w-full aspect-[366/206] rounded-[30px] overflow-hidden bg-bg-main flex items-center justify-center">
-                  {item.banner ? (
+                <div className="w-full aspect-[16/10] rounded-[10px] overflow-hidden bg-bg-main flex items-center justify-center shrink-0">
+                  {(item.cardBanner || item.banner) ? (
                     <img
-                      src={item.banner}
+                      src={item.cardBanner || item.banner}
                       alt={item.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top"
                     />
                   ) : (
                     <span className="text-5xl">{item.icon}</span>
@@ -39,7 +39,7 @@ export default function KeyHighlights() {
                 </div>
 
                 {/* Text */}
-                <div className="flex flex-col gap-[20px]">
+                <div className="flex flex-col gap-[20px] flex-1">
                   <p className="font-semibold text-[12px] text-coral tracking-[1px] uppercase">
                     {item.tag}{item.subtag ? ` · ${item.subtag}` : ''}
                   </p>
@@ -54,11 +54,11 @@ export default function KeyHighlights() {
             )
 
             return item.hasDetail ? (
-              <Link key={item.slug} to={`/project/${item.slug}`} className="block">
+              <Link key={item.slug} to={`/project/${item.slug}`} className="block h-full">
                 {card}
               </Link>
             ) : (
-              <div key={item.slug}>{card}</div>
+              <div key={item.slug} className="h-full">{card}</div>
             )
           })}
         </div>

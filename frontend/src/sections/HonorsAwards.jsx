@@ -26,11 +26,17 @@ export default function HonorsAwards() {
               key={i}
               className="bg-bg-card border border-border-dark rounded-[12px] flex gap-4 p-[17px] items-center min-h-[165px]"
             >
-              {/* Emoji badge */}
+              {/* Icon / image badge */}
               <div className="shrink-0">
-                <div className="w-12 h-12 rounded-[24px] bg-[rgba(255,107,91,0.12)] border border-[rgba(255,107,91,0.3)] flex items-center justify-center text-[22px]">
-                  {item.icon}
-                </div>
+                {item.image ? (
+                  <div className="w-12 h-12 rounded-[24px] overflow-hidden border border-[rgba(255,107,91,0.3)]">
+                    <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                  </div>
+                ) : (
+                  <div className="w-12 h-12 rounded-[24px] bg-[rgba(255,107,91,0.12)] border border-[rgba(255,107,91,0.3)] flex items-center justify-center text-[22px]">
+                    {item.icon}
+                  </div>
+                )}
               </div>
 
               {/* Text */}

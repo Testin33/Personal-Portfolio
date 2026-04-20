@@ -20,7 +20,7 @@ export default function Navbar() {
       </div>
 
       <a
-        href="mailto:azconajuan30@gmail.com"
+        href="#contact"
         className="font-btn text-sm font-semibold text-white bg-coral px-5 py-2.5 rounded-full tracking-wide transition-colors duration-200 hover:bg-coral-hover"
       >
         Hire Me →

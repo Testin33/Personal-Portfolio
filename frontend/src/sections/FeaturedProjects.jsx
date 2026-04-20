@@ -3,7 +3,7 @@ import { projects } from '../data/projects'
 
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="bg-bg-main w-full px-16 py-24">
+    <section id="projects" className="bg-bg-main w-full px-16 pt-12 pb-24">
       <div className="max-w-[1440px] mx-auto">
 
         {/* Header */}
@@ -31,12 +31,12 @@ export default function FeaturedProjects() {
               className="block bg-bg-card border border-border-dark rounded-[12px] overflow-hidden hover:border-coral/40 transition-colors duration-200"
             >
               {/* Photo placeholder / banner */}
-              <div className="w-full h-[206px] bg-[#e0e0e0] rounded-[30px] overflow-hidden">
+              <div className="w-full aspect-[16/9] bg-white rounded-[10px] overflow-hidden">
                 {project.banner ? (
                   <img
                     src={project.banner}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                   />
                 ) : null}
               </div>

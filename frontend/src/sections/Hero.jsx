@@ -1,6 +1,16 @@
+import { useState } from 'react'
+
+const cvFiles = [
+  { label: 'English',    file: '/cv/CV_curriculum_English.pdf' },
+  { label: 'Spanish',    file: '/cv/CV_curriculum_Spanish.pdf' },
+  { label: 'Portuguese', file: '/cv/CV_curriculum_Portuguese.pdf' },
+]
+
 export default function Hero() {
+  const [cvOpen, setCvOpen] = useState(false)
+
   return (
-    <section className="bg-bg-main w-full">
+    <section id="about" className="bg-bg-main w-full">
       <div className="flex items-center max-w-[1440px] mx-auto px-20 gap-10 pt-[72px] py-20">
 
         {/* Left */}
@@ -15,7 +25,7 @@ export default function Hero() {
             building real-world AI &amp; robotics solutions
           </p>
           <a
-            href="mailto:azconajuan30@gmail.com"
+            href="#contact"
             className="inline-flex items-center gap-2 font-btn font-semibold text-sm text-white bg-coral px-7 py-3.5 rounded-md tracking-wide w-fit mb-12 transition-all duration-300 hover:bg-coral-hover hover:translate-x-1 hover:shadow-[0_8px_16px_rgba(255,107,91,0.3)]"
           >
             Hire Me →
@@ -31,7 +41,7 @@ export default function Hero() {
             </a>
             <a href="mailto:azconajuan30@gmail.com"
               className="flex items-center gap-2.5 text-[#e0e0e0] text-sm hover:text-coral hover:translate-x-1 transition-all duration-200">
-              ✉ Email
+              <EmailIcon /> Email
             </a>
           </div>
         </div>
@@ -56,9 +66,29 @@ export default function Hero() {
             Industrial Engineering student focused on AI, robotics, and system optimization.
             Presented research at ICEAI 2025 (Japan) and recognized as a national robotics champion.
           </p>
-          <a href="#" className="text-sm text-coral-hover underline underline-offset-4 hover:text-coral transition-colors">
-            ↓ Download CV
-          </a>
+          <div className="relative w-fit">
+            <button
+              onClick={() => setCvOpen((o) => !o)}
+              className="text-sm text-coral-hover underline underline-offset-4 hover:text-coral transition-colors"
+            >
+              ↓ Download CV
+            </button>
+            {cvOpen && (
+              <div className="absolute left-0 top-full mt-2 bg-bg-card border border-border-dark rounded-[8px] overflow-hidden z-10 min-w-[160px]">
+                {cvFiles.map(({ label, file }) => (
+                  <a
+                    key={label}
+                    href={file}
+                    download
+                    onClick={() => setCvOpen(false)}
+                    className="block px-4 py-2.5 text-sm text-[#e0e0e0] hover:bg-bg-alt hover:text-coral transition-colors"
+                  >
+                    {label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>
@@ -68,8 +98,16 @@ export default function Hero() {
 function LinkedInIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
-      <circle cx="4" cy="4" r="2"/>
+      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-1 15v-5.5c0-1.383-.561-2.5-2.188-2.5-.988 0-1.65.543-1.922 1.063V12H11v7h3v-3.878c0-1.073.203-2.122 1.5-2.122 1.279 0 1.5 1.214 1.5 2.189V18h3zM7.5 10.5A1.5 1.5 0 1 0 7.5 7.5a1.5 1.5 0 0 0 0 3zM9 18v-7H6v7h3z"/>
+    </svg>
+  )
+}
+
+function EmailIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="4" width="20" height="16" rx="2"/>
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
     </svg>
   )
 }

@@ -1,8 +1,17 @@
+import { useState } from 'react'
 import { skills } from '../data/honors'
 
+const cvFiles = [
+  { label: 'English',    file: '/cv/CV_curriculum_English.pdf' },
+  { label: 'Spanish',    file: '/cv/CV_curriculum_Spanish.pdf' },
+  { label: 'Portuguese', file: '/cv/CV_curriculum_Portuguese.pdf' },
+]
+
 export default function WhoIAm() {
+  const [cvOpen, setCvOpen] = useState(false)
+
   return (
-    <section id="about" className="bg-bg-main w-full px-16 py-24">
+    <section id="about" className="bg-bg-main w-full px-16 pt-16 pb-12">
       <div className="max-w-[1440px] mx-auto">
 
         {/* Header */}
@@ -38,12 +47,29 @@ export default function WhoIAm() {
               <strong className="text-white font-bold">Requirements Engineering</strong>.
               My portfolio is available in English, Spanish, Portuguese, and Chinese.
             </p>
-            <a
-              href="#"
-              className="font-bold text-[14px] text-coral-hover underline underline-offset-4 hover:text-coral transition-colors w-fit"
-            >
-              ↓ Download CV
-            </a>
+            <div className="relative w-fit">
+              <button
+                onClick={() => setCvOpen((o) => !o)}
+                className="font-bold text-[14px] text-coral-hover underline underline-offset-4 hover:text-coral transition-colors"
+              >
+                ↓ Download CV
+              </button>
+              {cvOpen && (
+                <div className="absolute left-0 top-full mt-2 bg-bg-card border border-border-dark rounded-[8px] overflow-hidden z-10 min-w-[160px]">
+                  {cvFiles.map(({ label, file }) => (
+                    <a
+                      key={label}
+                      href={file}
+                      download
+                      onClick={() => setCvOpen(false)}
+                      className="block px-4 py-2.5 text-sm text-[#e0e0e0] hover:bg-bg-alt hover:text-coral transition-colors"
+                    >
+                      {label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Skills */}

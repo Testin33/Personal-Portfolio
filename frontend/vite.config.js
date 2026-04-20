@@ -10,6 +10,6 @@ export default defineConfig({
     emptyOutDir: true,
   },
   server: {
-    open: 'chrome',
+    open: true,
   },
 })
