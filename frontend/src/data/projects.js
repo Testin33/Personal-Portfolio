@@ -151,6 +151,7 @@ export const projects = [
     shortDesc:
       'End-to-end machine learning pipeline for real-world data classification and prediction, developed as the capstone research project.',
     banner: '/images/capstone.png',
+    url: 'https://github.com/Testin33/CAPSTONE-PROJECT',
     tech: ['Python', 'TensorFlow', 'Deep Learning'],
   },
   {
